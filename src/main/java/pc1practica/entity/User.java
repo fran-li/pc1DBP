@@ -3,7 +3,7 @@ package pc1practica.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "app_users")
+@Table(name = "users")
 public class User {
 
     @Id
@@ -13,10 +13,10 @@ public class User {
     @Column(nullable = false)
     private String username;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String password;
 
     @Column(nullable = false)

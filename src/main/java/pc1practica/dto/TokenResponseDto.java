@@ -1,4 +1,3 @@
 package pc1practica.dto;
 
-public class TokenResponseDto {
-}
+public record TokenResponseDto(String token) {}

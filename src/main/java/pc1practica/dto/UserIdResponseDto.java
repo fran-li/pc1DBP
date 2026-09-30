@@ -1,4 +1,3 @@
 package pc1practica.dto;
 
-public class UserIdResponseDto {
-}
+public record UserIdResponseDto(Long id) {}

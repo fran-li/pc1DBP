@@ -1,9 +1,20 @@
 services:
   postgres:
-    image: 'postgres:latest'
+    image: postgres:17-alpine
+    container_name: pc1practica-postgres
     environment:
-      - 'POSTGRES_DB=mydatabase'
-      - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
+      POSTGRES_DB: pc1practica
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
-      - '5432'
+      - "5432:5432"
+    volumes:
+      - pc1practica_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d pc1practica"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pc1practica_pgdata:
